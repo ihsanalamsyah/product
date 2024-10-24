@@ -29,3 +29,8 @@ type ImageProduct = {
     image_url: string,
     image_alt: string
 }
+type Alert = {
+    onClose: any,
+    visible: boolean,
+    message: string
+}

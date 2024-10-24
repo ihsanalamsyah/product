@@ -2,14 +2,11 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 import Logout  from "@/app/components/logout";
 
-const route = process.env.NEXT_PUBLIC_ROUTE;
 
 export default function Navbar(navbar: Navbar){
-    const searchParam = useSearchParams();
     const [users, setUsers] = useState<User>(navbar.user);
     const [modalLogout, setModalLogout] = useState(false);
     const router = useRouter();
@@ -20,17 +17,6 @@ export default function Navbar(navbar: Navbar){
     function handleChangeLogout(){
         setModalLogout(!modalLogout);
     }
-    
-   
-    useEffect(()=>{
-        
-        const fetchData =  async ()=>{
-            
-            
-        }
-        fetchData();
-    }, [users]);
-   
     return (
         <>
         <div className="navbar bg-black fixed top-0 left-0 w-full">

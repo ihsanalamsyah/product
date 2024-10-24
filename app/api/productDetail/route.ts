@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import { supabase } from '@/utils/supabase';
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
     let result:Product = {
         product_id: 0,
         title: "",

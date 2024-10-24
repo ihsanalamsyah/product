@@ -1,8 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react';
-import AlertFailed from '@/app/components/alertFailed';
-import AlertSuccess from '@/app/components/alertSuccess';
 import { useRouter } from 'next/navigation';
 
 export default function DetailProduct(detailProduct: Product){
