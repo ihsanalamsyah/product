@@ -4,7 +4,9 @@ import { cookies } from 'next/headers';
 import DetailProduct from '@/app/components/detailProduct';
 import ImageProduct from '@/app/components/imageProduct';
 import Navbar from "@/app/components/navbar";
+import Footer from "@/app/components/footer";
 import { notFound } from "next/navigation";
+import { redirect } from 'next/navigation';
 
 const route = process.env.NEXT_PUBLIC_ROUTE;
 
@@ -36,8 +38,10 @@ export default async function ProductDetail({params}: {params: {product_id: numb
             });
 
             const content = await response.json();
-            product = content.data;
-
+            if(content.status == "OK"){
+                product = content.data;
+            }
+            
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -63,9 +67,10 @@ export default async function ProductDetail({params}: {params: {product_id: numb
                 })
             });
             const content = await response.json();
-
-            user = content.data;
-
+            if(content.status == "OK"){
+                user = content.data;
+            }
+           
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -73,14 +78,20 @@ export default async function ProductDetail({params}: {params: {product_id: numb
         return user;
     }
     const user:User = await getUserDetail(username!);
+    if(user.username == ""){
+        return redirect("/loginFirst");
+     }
     const product:Product = await getDetailProduct(product_id);
     return(
         <>
-            <Navbar user={user} />
+        <Navbar user={user} />
+        <div className="min-h-screen">
             <div className='flex justify-around mt-16'>
                 <DetailProduct title={product.title!} price={product.price!} product_id={product.product_id!} row_status={product.row_status} image_url={product.image_url}/>
                 <ImageProduct image_url={product.image_url!} image_alt={`Image Product ${product.title}`} />
             </div>
+        </div>
+        <Footer />
         </>
     )
 }

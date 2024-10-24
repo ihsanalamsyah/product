@@ -18,28 +18,45 @@ export default function DetailProduct(detailProduct: Product){
         return router.push("/product");
     }
     return(
-        <div className='flex flex-col justify-center w-1/2 m-16'>
+        <div className='flex flex-col justify-center w-1/2'>
+            <div className='lg:m-16'>
+              <p className="lg:text-2xl text-md font-medium tracking-wider underline underline-offset-1">Product Detail :</p>
+                <p className="lg:text-5xl text-xl font-medium"><b>{detailProduct.title!.toUpperCase()}</b></p>
+                <div className="flex justify-between">
+                    <p className="lg:text-2xl text-md font-medium">Price : Rp. {price},00</p>
+                </div>  
+                
+                <hr className="border-y-1 border-gray-700"></hr>
+                <br></br>
+                <div className="collapse collapse-arrow border-base-300 bg-base-200 border lg:hidden grid">
+                <input type="checkbox" />
+                <div className="collapse-title"><p className="text-md lg:text-xl">View Product Description</p></div>
+                    <div className="collapse-content">
+                        <p className="text-justify lg:text-base text-sm">
+                            Lorem ipsum odor amet, consectetuer adipiscing elit. Interdum mollis cursus sed turpis risus,
+                            gravida ornare nisl vulputate! Neque maecenas at enim praesent himenaeos lectus tellus. 
+                            Nam non nibh duis mattis lorem. Vel dis sagittis id felis elementum nostra sapien rhoncus 
+                            habitant. Curabitur tincidunt facilisis ullamcorper, felis ridiculus scelerisque. 
+                            Metus orci ultrices dignissim, feugiat dis amet suspendisse.
+                        </p>
+                    </div>
+                </div>
+                <div className="lg:block hidden">
+                    <p className="text-justify lg:text-base text-sm">
+                        Lorem ipsum odor amet, consectetuer adipiscing elit. Interdum mollis cursus sed turpis risus,
+                        gravida ornare nisl vulputate! Neque maecenas at enim praesent himenaeos lectus tellus. 
+                        Nam non nibh duis mattis lorem. Vel dis sagittis id felis elementum nostra sapien rhoncus 
+                        habitant. Curabitur tincidunt facilisis ullamcorper, felis ridiculus scelerisque. 
+                        Metus orci ultrices dignissim, feugiat dis amet suspendisse.
+                    </p>
+                </div>
               
-            <p className="text-2xl font-medium tracking-wider underline underline-offset-1">Product Detail :</p>
-            <p className="text-5xl font-medium"><b>{detailProduct.title!.toUpperCase()}</b></p>
-            <div className="flex justify-between">
-                <p className="text-2xl font-medium">Price : Rp. {price},00</p>
-            </div>  
-             
-            <hr className="border-y-1 border-gray-700"></hr>
-            <br></br>
-            <p className='text-justify'>
-                Lorem ipsum odor amet, consectetuer adipiscing elit. Interdum mollis cursus sed turpis risus,
-                gravida ornare nisl vulputate! Neque maecenas at enim praesent himenaeos lectus tellus. 
-                Nam non nibh duis mattis lorem. Vel dis sagittis id felis elementum nostra sapien rhoncus 
-                habitant. Curabitur tincidunt facilisis ullamcorper, felis ridiculus scelerisque. 
-                Metus orci ultrices dignissim, feugiat dis amet suspendisse.
-            </p>
-            <br></br>
-            <hr className="border-y-1 border-gray-700 border-dashed"></hr>
-            <br></br>
-            <div className='flex'>
-                <a onClick={handleBackDashboard}><button className="btn btn-outline btn-sm">&lt; Back To Dashboard</button></a>
+                <br></br>
+                <hr className="border-y-1 border-gray-700 border-dashed"></hr>
+                <br></br>
+                <div className='flex'>
+                    <a onClick={handleBackDashboard}><button className="btn btn-outline lg:btn-sm btn-sm">&lt; Back To Dashboard</button></a>
+                </div>
             </div>
         </div>        
     )

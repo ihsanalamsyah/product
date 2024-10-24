@@ -15,8 +15,9 @@ Website dapat diakses dengan alamat url sebagai berikut:
 https://product-kappa-eight.vercel.app/
 
 Username yang bisa digunakan:
-    Username: Fadhil
-    Password: 123456
+
+Username: Fadhil
+Password: 123456
 
 Thank you Terima Kasih
 =======

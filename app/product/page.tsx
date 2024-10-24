@@ -3,8 +3,9 @@
 import WelcomeMessage from "@/app/components/welcomeMessage";
 import CardProduct from "@/app/components/cardProduct";
 import Navbar from "@/app/components/navbar";
+import Footer from "@/app/components/footer";
 import { cookies } from 'next/headers';
-
+import { redirect } from 'next/navigation';
 
 const route = process.env.NEXT_PUBLIC_ROUTE;
 
@@ -30,8 +31,10 @@ export default async function Products(){
                 })
             });
             const content = await response.json();
-            
-            user = content.data;
+            if(content.status == "OK"){
+                user = content.data;
+            }
+           
             
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -49,8 +52,10 @@ export default async function Products(){
                 }
             });
             const content = await response.json();
-            
-            products = content.data;
+            if(content.status == "OK"){
+                products = content.data;
+            }
+          
             
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -59,19 +64,25 @@ export default async function Products(){
         return products;
     }
     const user:User = await getUserDetail(username!);
+    if(user.username == ""){
+        return redirect("/loginFirst");
+    }
     const products:Product[] = await getAllProducts();
     return (
         <>
         <Navbar user={user} />
-        <div className="py-10 px-10 mt-16">
-            <div className="flex justify-center my-2">
-                <WelcomeMessage name={user!.username!}  />
-            </div> 
-            <hr></hr>
-            <div>
-                <CardProduct products={products}/>
-            </div>         
-        </div> 
+        <div className="min-h-screen">
+            <div className="py-10 px-10 mt-16">
+                <div className="flex justify-center my-2">
+                    <WelcomeMessage name={user!.username!}  />
+                </div> 
+                <hr></hr>
+                <div>
+                    <CardProduct products={products}/>
+                </div>         
+            </div>
+        </div>
+        <Footer />
         </> 
     ) 
 }

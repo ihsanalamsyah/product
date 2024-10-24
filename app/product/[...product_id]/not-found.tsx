@@ -5,7 +5,7 @@ export default function Page404() {
   return (
     <div>
       <p>Not Found Page</p>
-      <Link href="/products"><button>Back to Product Page</button></Link>
+      <Link href="/product"><button>Back to Product Page</button></Link>
     </div>
   );
 }
