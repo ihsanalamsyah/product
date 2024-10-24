@@ -1,8 +1,6 @@
 # PRODUCT
 
-Sebuah website product.
-Mempunyai Card Product.
-Mempunyai Detail Product.
+Sebuah Website product. Mempunyai Card Product. Mempunyai Detail Product
 
 Technology yang digunakan:
 - NextJS
@@ -14,7 +12,11 @@ Technology yang digunakan:
 
 Website dapat diakses dengan alamat url sebagai berikut:
 
-https://product-nextjs13.vercel.app/
+https://product-kappa-eight.vercel.app/
+
+Username yang bisa digunakan:
+    Username: Fadhil
+    Password: 123456
 
 Thank you Terima Kasih
 =======
