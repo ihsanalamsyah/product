@@ -3,7 +3,7 @@
 import { useState } from "react";
 export default function AlertFailed(alertFailed: Alert){
     
-    const [message, setMessage] = useState(alertFailed.message)
+    const [message] = useState(alertFailed.message)
    
     if(!alertFailed.visible){
         return null;

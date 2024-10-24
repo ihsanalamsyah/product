@@ -7,7 +7,7 @@ export default function Logout(logout: Logout){
     const router = useRouter();
   
     async function handleLogout(){
-        logout.handleChangeLogout
+        logout.handleChangeLogout();
         deleteCookie("username");
         return router.push("/");
     }

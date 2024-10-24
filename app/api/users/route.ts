@@ -4,7 +4,7 @@ import { supabase } from '@/utils/supabase';
 export async function POST(req: NextRequest) {
     try {
         const body:User = await req.json();
-        let result:User= {
+        const result:User= {
             user_id: 0,
             username : "",
             password: "",

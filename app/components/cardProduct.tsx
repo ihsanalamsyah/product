@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from 'next/navigation';
 
 export default function CardProduct(cardProduct: CardProduct){
-    const [products, setProducts] = useState<Product[]>(cardProduct.products);
+    const [products] = useState<Product[]>(cardProduct.products);
     const router = useRouter();
 
     function handleOpen(product_id: number){
@@ -14,7 +14,7 @@ export default function CardProduct(cardProduct: CardProduct){
     return (
         <>
           <div className="grid gap-x-8 gap-y-4 grid-cols-4">       
-                {products.map((product, index)=>{
+                {products.map((product)=>{
                     const price: number = product.price!;
                     let stringPrice:string = price.toString().replace(/\./g, '');
                     stringPrice = "Rp. "+ stringPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ",00";

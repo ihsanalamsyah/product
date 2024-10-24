@@ -65,7 +65,7 @@ export default async function Products(){
         <Navbar user={user} />
         <div className="py-10 px-10 mt-16">
             <div className="flex justify-center my-2">
-                <WelcomeMessage name={user?.username!}  />
+                <WelcomeMessage name={user!.username!}  />
             </div> 
             <hr></hr>
             <div>

@@ -3,7 +3,7 @@ import { supabase } from '@/utils/supabase';
 
 export async function POST() {
     try {
-        let result:Product[] = [];
+        const result:Product[] = [];
         const products = await supabase
             .from('products')
             .select()

@@ -7,7 +7,6 @@ import Logout  from "@/app/components/logout";
 
 
 export default function Navbar(navbar: Navbar){
-    const [users, setUsers] = useState<User>(navbar.user);
     const [modalLogout, setModalLogout] = useState(false);
     const router = useRouter();
 
